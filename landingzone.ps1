@@ -1,4 +1,12 @@
+#############################################################################   
+# Author: Rajeev Khoodeeram
+# Date: 2024-06-15
+# Purpose: Create directory structure for bank-aws-terraform project    
+##############################################################################
+
+
 # New-Item -ItemType Directory -Path bank-aws-terraform
+
 
 # Organization & Governance (Equivalent to Management Groups, Policies, RBAC)
 New-Item -ItemType Directory -Path bank-aws-terraform/landing-zone/global/organizations -Force
