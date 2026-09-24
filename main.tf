@@ -1,3 +1,15 @@
+# ==============================================================================
+# AWS Enterprise Landing Zone - Root Orchestrator
+# ==============================================================================
+# Description: This root-level Terraform configuration orchestrates the entire
+#              multi-account AWS enterprise landing zone. It ties together core
+#              governance, identity, multi-AZ networking, centralized logging,
+#              security baselines, and shared services modules to mirror your
+#              parallel Azure cloud architecture.
+# Author:      Rajeev Khoodeeram
+# Date:        September 24, 2026
+# ==============================================================================
+
 terraform {
   required_version = ">= 1.5.0"
   required_providers {
