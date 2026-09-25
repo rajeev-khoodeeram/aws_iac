@@ -15,4 +15,7 @@ crash.*.tfstate
 
 # IDE specific files
 .vscode/
-.idea/
+.idea/.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfvars
