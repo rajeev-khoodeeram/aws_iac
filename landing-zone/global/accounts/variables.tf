@@ -1,15 +1,24 @@
-variable "aws_region" {
-  type    = string
-  default = "us-east-1"
+# ==============================================================================
+# AWS Enterprise Landing Zone - Accounts Module Variables
+# ==============================================================================
+
+variable "security_ou_id" {
+  description = "OU ID for Security and Compliance accounts"
+  type        = string
 }
 
-variable "vpc_cidr" {
-  type    = string
-  default = "10.100.0.0/16"
+variable "core_platform_ou_id" {
+  description = "OU ID for Core Platform accounts"
+  type        = string
+}
+
+variable "workloads_ou_id" {
+  description = "OU ID for Workload accounts"
+  type        = string
 }
 
 # ------------------------------------------------------------------------------
-# AWS Organizations Account Emails
+# AWS Account Email Addresses
 # ------------------------------------------------------------------------------
 
 variable "security_account_email" {

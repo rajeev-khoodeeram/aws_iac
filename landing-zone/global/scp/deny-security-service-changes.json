@@ -1,0 +1,18 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyDisableSecurityServices",
+      "Effect": "Deny",
+      "Action": [
+        "guardduty:DeleteDetector",
+        "guardduty:UpdateDetector",
+        "securityhub:DisableSecurityHub",
+        "securityhub:BatchDisableStandards",
+        "macie2:DisableMacie",
+        "macie2:DisableOrganizationAdminAccount"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

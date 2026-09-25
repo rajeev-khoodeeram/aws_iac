@@ -1,0 +1,21 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyS3PublicAccessChanges",
+      "Effect": "Deny",
+      "Action": [
+        "s3:PutBucketAcl",
+        "s3:PutBucketPolicy",
+        "s3:PutAccountPublicAccessBlock",
+        "s3:PutBucketPublicAccessBlock"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:PrincipalType": "IAMUser"
+        }
+      }
+    }
+  ]
+}

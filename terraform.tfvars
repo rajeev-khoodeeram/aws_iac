@@ -1,0 +1,6 @@
+security_account_email        = "rajeev.khoodeeram@gmail.com"
+log_archive_account_email    = "rajeev.khoodeeram@gmail.com"
+network_account_email         = "rajeev.khoodeeram@gmail.com"
+shared_services_account_email = "rajeev.khoodeeram@gmail.com"
+retail_prod_account_email     = "rajeev.khoodeeram@gmail.com"
+retail_nonprod_account_email = "rajeev.khoodeeram@gmail.com"

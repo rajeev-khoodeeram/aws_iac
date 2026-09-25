@@ -20,9 +20,9 @@ module "vpc" {
   name = "vpc-bank-core-prod"
   cidr = "10.100.0.0/16"
 
-  azs             = ["us-east-1a", "us-east-1b", "us-east-1c"]
-  public_subnets  = ["10.100.101.0/24", "10.100.102.0/24", "10.100.103.0/24"]
-  private_subnets = ["10.100.0.0/20", "10.100.16.0/20", "10.100.32.0/20"] # Large blocks for EKS pod IPs
+  azs              = ["us-east-1a", "us-east-1b", "us-east-1c"]
+  public_subnets   = ["10.100.101.0/24", "10.100.102.0/24", "10.100.103.0/24"]
+  private_subnets  = ["10.100.0.0/20", "10.100.16.0/20", "10.100.32.0/20"] # Large blocks for EKS pod IPs
   database_subnets = ["10.100.150.0/24", "10.100.151.0/24", "10.100.152.0/24"]
 
   enable_nat_gateway     = true
