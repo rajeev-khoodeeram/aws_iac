@@ -8,9 +8,6 @@ terraform {
   }
 }
 
-variable "aws_region" {
-  type = string
-}
 
 # Core ECR Repository for Shared Container Images
 resource "aws_ecr_repository" "shared_apps" {

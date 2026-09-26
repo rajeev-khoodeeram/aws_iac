@@ -8,9 +8,6 @@ terraform {
   }
 }
 
-variable "aws_region" {
-  type = string
-}
 
 data "aws_caller_identity" "current" {}
 

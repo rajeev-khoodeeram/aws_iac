@@ -90,15 +90,10 @@ module "accounts" {
   core_platform_ou_id = module.organizations.core_platform_ou_id
   security_ou_id      = module.organizations.security_compliance_ou_id
 
-
-  # We are passing the email addresses for each account to the accounts module. These emails are used to create the AWS accounts in the landing zone.
-  # The email addresses are defined in terraform.tfvars and passed as variables to the accounts module.
-  security_account_email        = var.security_account_email
-  log_archive_account_email     = var.log_archive_account_email
-  network_account_email         = var.network_account_email
-  shared_services_account_email = var.shared_services_account_email
-  retail_prod_account_email     = var.retail_prod_account_email
-  retail_nonprod_account_email  = var.retail_nonprod_account_email
+  security_account_email               = var.security_account_email
+  log_archive_account_email            = var.log_archive_account_email
+  network_sharedservices_account_email = var.network_sharedservices_account_email
+  retail_prod_account_email            = var.retail_prod_account_email
 }
 
 
@@ -113,10 +108,10 @@ module "iam_baseline" {
   # IAM Identity Center assigns permissions to existing AWS accounts. So we retrieve each of them from accounts module and pass them to the IAM baseline module.
   security_account_id        = module.accounts.security_account_id
   log_archive_account_id     = module.accounts.log_archive_account_id
-  network_account_id         = module.accounts.network_account_id
-  shared_services_account_id = module.accounts.shared_services_account_id
+  network_sharedservices_account_id = module.accounts.network_sharedservices_account_id
+  # shared_services_account_id = module.accounts.shared_services_account_id
   retail_prod_account_id     = module.accounts.retail_prod_account_id
-  retail_nonprod_account_id  = module.accounts.retail_nonprod_account_id
+  # retail_nonprod_account_id  = module.accounts.retail_nonprod_account_id
 
 
   # We add a dependency on the accounts module to ensure that the IAM baseline module is only applied after the accounts module has completed successfully. This is important because the IAM baseline module needs to know the account IDs of the AWS accounts that were created in the accounts module.

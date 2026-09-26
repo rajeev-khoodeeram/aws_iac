@@ -8,9 +8,7 @@ terraform {
   }
 }
 
-variable "aws_region" {
-  type = string
-}
+
 
 # Customer Managed KMS Key for Core Encryption
 resource "aws_kms_key" "landing_zone_key" {
