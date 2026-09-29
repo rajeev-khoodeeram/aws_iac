@@ -97,8 +97,8 @@ module "vpc" {
   # --------------------------------------------------------------------------
 
   enable_nat_gateway     = true
-  single_nat_gateway     = false
-  one_nat_gateway_per_az = true
+  single_nat_gateway     = true
+  one_nat_gateway_per_az = false
 
   # --------------------------------------------------------------------------
   # DNS
