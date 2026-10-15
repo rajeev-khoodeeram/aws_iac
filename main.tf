@@ -16,6 +16,8 @@ terraform {
     aws = {
       source  = "hashicorp/aws"
       version = "~> 5.0"
+
+
     }
   }
 }
@@ -64,6 +66,19 @@ provider "aws" {
 }
 
 
+# ==============================================================================
+# DATA SOURCES (addded for creating cloudtrail bucket in the log archive account - see section Cross-account CloudTrail bucket policy)
+# Gives us the current management account ID
+# Gives us the AWS Organization ID
+# We will pass those into the logging module.
+# ==============================================================================
+data "aws_caller_identity" "current" {}
+
+data "aws_organizations_organization" "current" {}
+
+
+
+
 
 # ==============================================================================
 # GLOBAL GOVERNANCE
@@ -108,11 +123,18 @@ module "logging" {
   source     = "./landing-zone/platform/logging"
   aws_region = var.aws_region
 
+  management_account_id = data.aws_caller_identity.current.account_id
+  organization_id       = data.aws_organizations_organization.current.id
+
   // We specify the provider alias for the logging module to ensure that it uses the correct AWS account (log archive account) for creating logging resources.
+
   providers = {
-    aws = aws.log_archive
+    aws            = aws.log_archive
+    aws.management = aws
   }
 }
+
+
 
 # 4. Security Baselines (GuardDuty, Security Hub, KMS)
 module "security" {

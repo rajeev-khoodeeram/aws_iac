@@ -1,40 +1,40 @@
 resource "aws_organizations_account" "security" {
- //name      = "Bank-Security"
-  name       = "ryansec"
+  //name      = "Bank-Security"
+  name      = "ryansec"
   email     = var.security_account_email
   parent_id = var.security_ou_id
 
   close_on_deletion = false
 
   lifecycle {
-  prevent_destroy = true
-}
+    prevent_destroy = true
+  }
 }
 
 resource "aws_organizations_account" "log_archive" {
   //name      = "Bank-Log-Archive"
-  name              = "ryanlog"
+  name      = "ryanlog"
   email     = var.log_archive_account_email
   parent_id = var.security_ou_id
 
   close_on_deletion = false
 
   lifecycle {
-  prevent_destroy = true
-}
+    prevent_destroy = true
+  }
 }
 
 resource "aws_organizations_account" "network_sharedservices" {
   //name      = "Bank-Network-Shared-Services"
-  name              = "rajeevoutlook"
+  name      = "rajeevoutlook"
   email     = var.network_sharedservices_account_email
   parent_id = var.core_platform_ou_id
 
   close_on_deletion = false
 
   lifecycle {
-  prevent_destroy = true
-}
+    prevent_destroy = true
+  }
 }
 
 # resource "aws_organizations_account" "shared_services" {
@@ -47,15 +47,15 @@ resource "aws_organizations_account" "network_sharedservices" {
 
 resource "aws_organizations_account" "retail_prod" {
   //name      = "Retail-Banking-Production"
-  name              = "RetailProd"
+  name      = "RetailProd"
   email     = var.retail_prod_account_email
   parent_id = var.workloads_ou_id
 
   close_on_deletion = false
 
   lifecycle {
-  prevent_destroy = true
-}
+    prevent_destroy = true
+  }
 }
 
 # resource "aws_organizations_account" "retail_nonprod" {

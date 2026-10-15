@@ -19,7 +19,13 @@ resource "aws_organizations_organization" "bank_org" {
     "SERVICE_CONTROL_POLICY"
   ]
 
-  
+
+//added for cloudtrail bucket creation in the log archive account - see section Cross-account CloudTrail bucket policy
+lifecycle {
+  ignore_changes = [
+    aws_service_access_principals
+  ]
+}
 
 }
 
@@ -28,7 +34,7 @@ resource "aws_organizations_organizational_unit" "core" {
   name      = "Core-Platform"
   parent_id = aws_organizations_organization.bank_org.roots[0].id
 
- 
+
 }
 
 # 3. Create Workloads OU (Equiv. to Azure Landing Zones Management Group)
@@ -44,7 +50,7 @@ resource "aws_organizations_organizational_unit" "security" {
   name      = "Security-Compliance"
   parent_id = aws_organizations_organization.bank_org.roots[0].id
 
-   
+
 }
 
 output "org_id" {

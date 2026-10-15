@@ -19,3 +19,14 @@ crash.*.tfstate
 *.tfstate
 *.tfstate.*
 terraform.tfvars
+
+
+#Node.js dependencies
+
+node_modules/
+
+#Node.js build artifacts
+
+dist/
+build/
+coverage/
