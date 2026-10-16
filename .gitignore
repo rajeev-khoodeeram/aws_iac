@@ -21,12 +21,14 @@ crash.*.tfstate
 terraform.tfvars
 
 
-#Node.js dependencies
+# Terraform saved deployment plans
+*.tfplan
 
+
+#Node.js dependencies
 node_modules/
 
 #Node.js build artifacts
-
 dist/
 build/
 coverage/

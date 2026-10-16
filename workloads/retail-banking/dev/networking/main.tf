@@ -45,7 +45,7 @@ module "vpc" {
   ]
 
   enable_nat_gateway = true
-  single_nat_gateway = true   # to reduce cost in dev environment (normally we can have more than 1)
+  single_nat_gateway = true # to reduce cost in dev environment (normally we can have more than 1)
 
   enable_dns_hostnames = true
   enable_dns_support   = true

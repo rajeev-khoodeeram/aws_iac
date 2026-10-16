@@ -9,7 +9,7 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 5.0"
 
-       configuration_aliases = [
+      configuration_aliases = [
         aws.management
       ]
     }
@@ -110,7 +110,7 @@ resource "aws_s3_bucket_policy" "audit_logs" {
 
         Condition = {
           StringEquals = {
-            "s3:x-amz-acl" = "bucket-owner-full-control"
+            "s3:x-amz-acl"  = "bucket-owner-full-control"
             "aws:SourceArn" = "arn:aws:cloudtrail:${var.aws_region}:${var.management_account_id}:trail/bank-core-organization-trail"
           }
         }
@@ -130,7 +130,7 @@ resource "aws_s3_bucket_policy" "audit_logs" {
 
         Condition = {
           StringEquals = {
-            "s3:x-amz-acl" = "bucket-owner-full-control"
+            "s3:x-amz-acl"  = "bucket-owner-full-control"
             "aws:SourceArn" = "arn:aws:cloudtrail:${var.aws_region}:${var.management_account_id}:trail/bank-core-organization-trail"
           }
         }
@@ -145,12 +145,12 @@ resource "aws_s3_bucket_policy" "audit_logs" {
 # ==============================================================================
 resource "aws_cloudtrail" "organization" {
 
-  provider = aws.management
+  provider                      = aws.management
   name                          = "bank-core-organization-trail"
   s3_bucket_name                = aws_s3_bucket.audit_logs.id
   include_global_service_events = true
   is_multi_region_trail         = true
-  is_organization_trail        = true
+  is_organization_trail         = true
 
   enable_log_file_validation = true
 

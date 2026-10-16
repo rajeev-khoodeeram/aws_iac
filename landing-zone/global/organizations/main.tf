@@ -20,12 +20,12 @@ resource "aws_organizations_organization" "bank_org" {
   ]
 
 
-//added for cloudtrail bucket creation in the log archive account - see section Cross-account CloudTrail bucket policy
-lifecycle {
-  ignore_changes = [
-    aws_service_access_principals
-  ]
-}
+  //added for cloudtrail bucket creation in the log archive account - see section Cross-account CloudTrail bucket policy
+  lifecycle {
+    ignore_changes = [
+      aws_service_access_principals
+    ]
+  }
 
 }
 

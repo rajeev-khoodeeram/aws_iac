@@ -78,7 +78,7 @@ resource "aws_db_instance" "retail" {
   copy_tags_to_snapshot   = true
 
   auto_minor_version_upgrade = true
-  apply_immediately           = true
+  apply_immediately          = true
 
   performance_insights_enabled = false
   monitoring_interval          = 0
